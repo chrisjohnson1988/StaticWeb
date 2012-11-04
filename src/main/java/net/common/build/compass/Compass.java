@@ -6,8 +6,8 @@ package net.common.build.compass;
 
 import java.io.File;
 import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import net.common.build.JRubyFactory;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Compass {
     private final ScriptEngine jruby;
     public Compass() {
         try {
-            this.jruby = new ScriptEngineManager().getEngineByName("ruby");
+            this.jruby = JRubyFactory.getJRubyInstance();
             jruby.eval(
                 "require 'rubygems' \n" +
                 "require 'compass' \n" +

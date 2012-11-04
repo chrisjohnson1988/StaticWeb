@@ -12,6 +12,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import net.common.build.AbstractCompiler;
 import net.common.build.CompilationException;
+import net.common.build.JRubyFactory;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Sass extends AbstractCompiler {
     private final ScriptEngine jruby;
     public Sass() {
         try {
-            this.jruby = new ScriptEngineManager().getEngineByName("ruby");
+            this.jruby = JRubyFactory.getJRubyInstance();
             jruby.eval(
                 "require 'rubygems' \n" +
                 "require 'sass' \n"
